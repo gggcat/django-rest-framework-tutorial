@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  tutorial:
+    image: zzzcat/dispshell
+    tty: true
+    volumes:
+      - .:/work/:rw
+    working_dir: /work/
+    ports:
+      - "8000:8000"
+    environment: 
+      PYTHONDONTWRITEBYTECODE: 1
+      SLACK_INCOMING_WEBHOOK_URL: ${SLACK_INCOMING_WEBHOOK_URL}
+      SECRET_KEY: ${SECRET_KEY}
